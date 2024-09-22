@@ -21,7 +21,7 @@
     },
     {
       "data": {
-        "url": "../data/clean_flights.csv"
+        "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_flights.csv"
       },
       "layer": [
         {
