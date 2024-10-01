@@ -17,7 +17,6 @@
       }
     }
   ],
-  "transform": [{ "filter": "datum.AvgTicketPrice <= ticket_price_filter" }],
 
   "layer": [
     {
@@ -36,7 +35,7 @@
     },
     {
       "data": {
-        "url": "data/clean_code.csv"
+        "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
       },
       "layer": [
         {
@@ -52,7 +51,10 @@
             "longitude2": { "field": "DestLongitude" },
             "latitude2": { "field": "DestLatitude" },
             "tooltip": { "field": "Dest" }
-          }
+          },
+          "transform": [
+            { "filter": "datum.AvgTicketPrice <= ticket_price_filter" }
+          ]
         },
         {
           "mark": {
@@ -63,7 +65,10 @@
           "encoding": {
             "longitude": { "field": "OrigLongitude", "type": "quantitative" },
             "latitude": { "field": "OrigLatitude", "type": "quantitative" }
-          }
+          },
+          "transform": [
+            { "filter": "datum.AvgTicketPrice <= ticket_price_filter" }
+          ]
         }
       ]
     }
