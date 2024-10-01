@@ -3,25 +3,40 @@
   "width": 800,
   "height": 450,
   "title": "Flight Path Network Diagram",
-  "projection": {"type": "equalEarth"},
+  "projection": { "type": "equalEarth" },
+  "params": [
+    {
+      "name": "ticket_price_filter",
+      "value": 1600,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 2000,
+        "step": 100,
+        "name": "Maximum Average Ticket Price: "
+      }
+    }
+  ],
+  "transform": [{ "filter": "datum.AvgTicketPrice <= ticket_price_filter" }],
+
   "layer": [
     {
       "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/ne_110m_admin_0_countries.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
+        "format": { "type": "topojson", "feature": "ne_110m_admin_0_countries" }
       },
-      "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "white"}
+      "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
     },
     {
       "data": {
         "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/2_symbol_map/js/WorldMapWithGraticules.topojson",
-        "format": {"type": "topojson", "feature": "ne_110m_graticules_30"}
+        "format": { "type": "topojson", "feature": "ne_110m_graticules_30" }
       },
-      "mark": {"type": "geoshape", "fill": null, "stroke": "lightgray"}
+      "mark": { "type": "geoshape", "fill": null, "stroke": "lightgray" }
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_flights.csv"
+        "url": "data/clean_code.csv"
       },
       "layer": [
         {
@@ -32,11 +47,11 @@
             "opacity": 0.3
           },
           "encoding": {
-            "longitude": {"field": "OrigLongitude", "type": "quantitative"},
-            "latitude": {"field": "OrigLatitude", "type": "quantitative"},
-            "longitude2": {"field": "DestLongitude"},
-            "latitude2": {"field": "DestLatitude"},
-            "tooltip": {"field": "Dest"}
+            "longitude": { "field": "OrigLongitude", "type": "quantitative" },
+            "latitude": { "field": "OrigLatitude", "type": "quantitative" },
+            "longitude2": { "field": "DestLongitude" },
+            "latitude2": { "field": "DestLatitude" },
+            "tooltip": { "field": "Dest" }
           }
         },
         {
@@ -46,8 +61,8 @@
             "size": 5
           },
           "encoding": {
-            "longitude": {"field": "OrigLongitude", "type": "quantitative"},
-            "latitude": {"field": "OrigLatitude", "type": "quantitative"}
+            "longitude": { "field": "OrigLongitude", "type": "quantitative" },
+            "latitude": { "field": "OrigLatitude", "type": "quantitative" }
           }
         }
       ]
