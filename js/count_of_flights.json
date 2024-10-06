@@ -1,0 +1,66 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
+  },
+  "params": [
+    {
+      "name": "Weather_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Clear",
+          "Sunny",
+          "Damaging Wind",
+          "Cloudy",
+          "Heavy Fog",
+          "Rain",
+          "Thunder & Lightning"
+        ],
+        "labels": [
+          "Clear",
+          "Sunny",
+          "Damaging Wind",
+          "Cloudy",
+          "Heavy Fog",
+          "Rain",
+          "Thunder & Lightning"
+        ],
+        "name": "Weather Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "Weather_selection == null || datum.OriginWeather == Weather_selection"
+    }
+  ],
+  "vconcat": [
+    {
+      "width": 500,
+      "height": 300,
+      "mark": "line",
+      "title": "Count of Flights Delayed by Hour of Day",
+      "params": [
+        {
+          "name": "time_brush",
+          "select": { "type": "interval", "encodings": ["x"] }
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "hour_of_day",
+          "type": "quantitative",
+          "axis": { "title": "Hour of Day" }
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count of Flights Delayed",
+          "axis": { "grid": false }
+        }
+      }
+    }
+  ],
+  "config": { "title": { "font": "sans-serif", "fontSize": 14 } }
+}
