@@ -53,17 +53,24 @@
       "width": 700,
       "height": 200,
       "mark": "line",
-      "title": "Count of Flights Delayed by Hour of Day",
+      "title": {
+        "text": "Count of Flights Delayed by Hour of Day",
+        "fontSize": 18
+      },
       "encoding": {
         "x": {
           "field": "hour_of_day",
           "type": "quantitative",
-          "axis": { "title": "Hour of Day" }
+          "axis": {
+            "title": "Hour of Day",
+            "labelFontSize": 14,
+            "titleFontSize": 16
+          }
         },
         "y": {
           "aggregate": "count",
           "title": "Count of Flights Delayed",
-          "axis": { "grid": false }
+          "axis": { "grid": false, "labelFontSize": 14, "titleFontSize": 16 }
         },
         "color": {
           "value": "#ff5500"
@@ -74,6 +81,10 @@
       "projection": { "type": "equalEarth" },
       "width": 700,
       "height": 450,
+      "title": {
+        "text": "Flight Paths",
+        "fontSize": 18
+      },
       "layer": [
         {
           "data": {
@@ -148,6 +159,22 @@
               }
             }
           ]
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "fontSize": 12,
+            "color": "black"
+          },
+          "encoding": {
+            "text": {
+              "value": "A significant number of flights travel through Europe and North America."
+            },
+            "x": { "value": 150 },
+            "y": { "value": 50 }
+          }
         }
       ]
     }
