@@ -54,12 +54,6 @@
       "height": 200,
       "mark": "line",
       "title": "Count of Flights Delayed by Hour of Day",
-      "params": [
-        {
-          "name": "time_brush",
-          "select": { "type": "interval", "encodings": ["x"] }
-        }
-      ],
       "encoding": {
         "x": {
           "field": "hour_of_day",
