@@ -114,7 +114,21 @@
                 },
                 "latitude": { "field": "OrigLatitude", "type": "quantitative" },
                 "longitude2": { "field": "DestLongitude" },
-                "latitude2": { "field": "DestLatitude" },
+                "latitude2": { "field": "DestLatitude" }
+              }
+            },
+            {
+              "mark": {
+                "type": "circle",
+                "color": "#fe0000",
+                "size": 5
+              },
+              "encoding": {
+                "longitude": {
+                  "field": "DestLongitude",
+                  "type": "quantitative"
+                },
+                "latitude": { "field": "DestLatitude", "type": "quantitative" },
                 "tooltip": { "field": "Dest" }
               }
             },
@@ -129,7 +143,8 @@
                   "field": "OrigLongitude",
                   "type": "quantitative"
                 },
-                "latitude": { "field": "OrigLatitude", "type": "quantitative" }
+                "latitude": { "field": "OrigLatitude", "type": "quantitative" },
+                "tooltip": { "field": "Origin" }
               }
             }
           ]
