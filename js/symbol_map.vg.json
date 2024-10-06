@@ -1,23 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 800,
-  "height": 450,
   "title": "Flight Path Network Diagram",
   "projection": { "type": "equalEarth" },
-  "params": [
-    {
-      "name": "ticket_price_filter",
-      "value": 1600,
-      "bind": {
-        "input": "range",
-        "min": 0,
-        "max": 2000,
-        "step": 100,
-        "name": "Maximum Average Ticket Price: "
-      }
-    }
-  ],
-
+  "width": 800,
+  "height": 450,
   "layer": [
     {
       "data": {
@@ -37,6 +23,9 @@
       "data": {
         "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
       },
+      "transform": [
+        { "filter": "datum.AvgTicketPrice <= ticket_price_filter" }
+      ],
       "layer": [
         {
           "mark": {
@@ -51,10 +40,7 @@
             "longitude2": { "field": "DestLongitude" },
             "latitude2": { "field": "DestLatitude" },
             "tooltip": { "field": "Dest" }
-          },
-          "transform": [
-            { "filter": "datum.AvgTicketPrice <= ticket_price_filter" }
-          ]
+          }
         },
         {
           "mark": {
@@ -65,12 +51,23 @@
           "encoding": {
             "longitude": { "field": "OrigLongitude", "type": "quantitative" },
             "latitude": { "field": "OrigLatitude", "type": "quantitative" }
-          },
-          "transform": [
-            { "filter": "datum.AvgTicketPrice <= ticket_price_filter" }
-          ]
+          }
         }
       ]
     }
-  ]
+  ],
+  "params": [
+    {
+      "name": "ticket_price_filter",
+      "value": 1000,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 2000,
+        "step": 100,
+        "name": "Maximum Average Ticket Price: "
+      }
+    }
+  ],
+  "config": {}
 }
