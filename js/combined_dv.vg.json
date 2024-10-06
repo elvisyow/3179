@@ -50,8 +50,8 @@
   ],
   "vconcat": [
     {
-      "width": 500,
-      "height": 300,
+      "width": 700,
+      "height": 200,
       "mark": "line",
       "title": "Count of Flights Delayed by Hour of Day",
       "params": [
@@ -70,12 +70,15 @@
           "aggregate": "count",
           "title": "Count of Flights Delayed",
           "axis": { "grid": false }
+        },
+        "color": {
+          "value": "#ff5500"
         }
       }
     },
     {
       "projection": { "type": "equalEarth" },
-      "width": 800,
+      "width": 700,
       "height": 450,
       "layer": [
         {
