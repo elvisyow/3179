@@ -32,12 +32,7 @@
       }
     }
   ],
-  "transform": [
-    {
-      "filter": "Weather_selection == null || datum.OriginWeather == Weather_selection"
-    }
-  ],
-  "vconcat": [
+  "hconcat": [
     {
       "width": 500,
       "height": 300,
@@ -49,6 +44,14 @@
           "select": { "type": "interval", "encodings": ["x"] }
         }
       ],
+      "transform": [
+        {
+          "filter": "Weather_selection == null || datum.OriginWeather == Weather_selection"
+        },
+        {
+          "filter": "datum.FlightDelay == 'True'"
+        }
+      ],
       "encoding": {
         "x": {
           "field": "hour_of_day",
@@ -58,6 +61,38 @@
         "y": {
           "aggregate": "count",
           "title": "Count of Flights Delayed",
+          "axis": { "grid": false }
+        }
+      }
+    },
+    {
+      "width": 500,
+      "height": 300,
+      "mark": "line",
+      "title": "Count of Flights Cancelled by Hour of Day",
+      "params": [
+        {
+          "name": "time_brush",
+          "select": { "type": "interval", "encodings": ["x"] }
+        }
+      ],
+      "transform": [
+        {
+          "filter": "Weather_selection == null || datum.OriginWeather == Weather_selection"
+        },
+        {
+          "filter": "datum.Cancelled == 'True'"
+        }
+      ],
+      "encoding": {
+        "x": {
+          "field": "hour_of_day",
+          "type": "quantitative",
+          "axis": { "title": "Hour of Day" }
+        },
+        "y": {
+          "aggregate": "count",
+          "title": "Count of Flights Cancelled",
           "axis": { "grid": false }
         }
       }
