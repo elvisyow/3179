@@ -15,15 +15,27 @@
 
 <body>
 
-  <div id="symbol_map"></div>
+  <div id="flight_map"></div>
+
+  <div id="delay_chart"></div>
 
   <script type="text/javascript">
 
-    var spec2 = "js/combined_dv.vg.json";
-    vegaEmbed('#symbol_map', spec2).then(function (result) {
+    var flight_map = "js/flight_map.vg.json";
+    vegaEmbed("#flight_map", flight_map).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
+
+    var delay_chart = "js/delay_chart.vg.json";
+    vegaEmbed("#delay_chart", delay_chart)
+      .then(function (result) {
+        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      })
+      .catch(console.error);
+
   </script>
+
+    
 
 </body>
 
