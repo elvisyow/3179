@@ -1,0 +1,60 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
+  },
+  "title": "Flight Duration vs. Ticket Price",
+  "width": 800,
+  "height": 600,
+  "mark": "point",
+  "params": [
+    {
+      "name": "MinFlightDuration",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 24,
+        "step": 1,
+        "name": "Minimum Flight Duration (hours):"
+      }
+    }
+  ],
+  "transform": [{ "filter": "datum.FlightTimeHour >= MinFlightDuration" }],
+  "encoding": {
+    "x": {
+      "field": "FlightTimeHour",
+      "type": "quantitative",
+      "title": "Flight Duration (hours)"
+    },
+    "y": {
+      "field": "AvgTicketPrice",
+      "type": "quantitative",
+      "title": "Average Ticket Price ($)"
+    },
+    "tooltip": [
+      {
+        "field": "FlightTimeHour",
+        "type": "quantitative",
+        "title": "Flight Duration (hours)",
+        "format": ".2f"
+      },
+      {
+        "field": "AvgTicketPrice",
+        "type": "quantitative",
+        "title": "Average Ticket Price",
+        "format": "$.2f"
+      },
+      {
+        "field": "DestRegion",
+        "type": "nominal",
+        "title": "Destination Region"
+      },
+      {
+        "field": "FlightDelayType",
+        "type": "nominal",
+        "title": "Flight Delay Type"
+      }
+    ]
+  }
+}

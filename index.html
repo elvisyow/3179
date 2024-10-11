@@ -17,12 +17,19 @@
 
   <div id="flight_map"></div>
 
+  <div id="flight_delay"></div>
+
   <div id="delay_chart"></div>
 
   <script type="text/javascript">
 
     var flight_map = "js/flight_map.vg.json";
     vegaEmbed("#flight_map", flight_map).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    var flight_delay = "js/flight_delay.vg.json";
+    vegaEmbed("#flight_delay", flight_delay).then(function (result) {
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
