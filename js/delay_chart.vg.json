@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_data.csv"
+    "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
   },
   "params": [
     {
