@@ -21,10 +21,6 @@
       "projection": { "type": "equalEarth" },
       "width": 700,
       "height": 450,
-      "title": {
-        "text": "Flight Paths",
-        "fontSize": 18
-      },
       "layer": [
         {
           "data": {
@@ -107,13 +103,6 @@
             "baseline": "middle",
             "fontSize": 12,
             "color": "black"
-          },
-          "encoding": {
-            "text": {
-              "value": "A significant number of flights travel through Europe and North America."
-            },
-            "x": { "value": 150 },
-            "y": { "value": 50 }
           }
         }
       ]

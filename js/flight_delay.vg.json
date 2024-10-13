@@ -3,7 +3,6 @@
   "data": {
     "url": "https://raw.githubusercontent.com/elvisyow/3179/main/data/clean_code.csv"
   },
-  "title": "Flight Duration vs. Ticket Price",
   "width": 800,
   "height": 600,
   "mark": "point",
