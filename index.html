@@ -2,47 +2,78 @@
 <html>
 
 <head>
+  <!-- Import Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-
-  <!-- CSS file -->
+  <!-- Custom CSS file -->
   <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
-
 </head>
 
 <body>
 
-  <div id="flight_map"></div>
+  <!-- Container for Bootstrap layout -->
+  <div class="container my-5">
 
-  <div id="flight_delay"></div>
+    <!-- Main Title -->
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h1 class="display-4">Flight Data Visualisation</h1>
+      </div>
+    </div>
 
-  <div id="delay_chart"></div>
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h2>Flight Path Network Diagram</h2>
+        <div id="flight_map" class="d-flex justify-content-center align-items-center mb-3"></div>
+        <p class="text-left">This chart visualises flight routes between different cities. From this, we see that airports with the most flights are located around the Europe and North </p>
+      </div>
+    </div>
 
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h2>Flight Duration vs Average Ticket Price Scatterplot</h2>
+        <div id="flight_delay" class="d-flex justify-content-center align-items-center mb-3"></div>
+        <p class="text-left">This scatterplot shows the relationship between the flight duration and the average ticket price. It is expected that the longer the flight, the more expensive the ticket. However, it seems that there are quite a few flights with minimal flight durations that cost more than flights with long hours.</p>
+      </div>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col text-center">
+        <h2>Flight Delays and Cancellations per Hour of Day</h2>
+        <div id="delay_chart" class="d-flex justify-content-center align-items-center mb-3"></div>
+        <p class="text-left">This chart breaks down the counts of flight delays and cancellations depending on the hour of the day. This helps in understanding common time periods where disruptions are more common (such as peak travel times).</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Import Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Vega Embedding Scripts -->
   <script type="text/javascript">
-
     var flight_map = "js/flight_map.vg.json";
     vegaEmbed("#flight_map", flight_map).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      // Access the Vega view instance
     }).catch(console.error);
 
     var flight_delay = "js/flight_delay.vg.json";
     vegaEmbed("#flight_delay", flight_delay).then(function (result) {
-      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+      // Access the Vega view instance
     }).catch(console.error);
 
     var delay_chart = "js/delay_chart.vg.json";
-    vegaEmbed("#delay_chart", delay_chart)
-      .then(function (result) {
-        // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
-      })
-      .catch(console.error);
-
+    vegaEmbed("#delay_chart", delay_chart).then(function (result) {
+      // Access the Vega view instance
+    }).catch(console.error);
   </script>
-
-    
 
 </body>
 
