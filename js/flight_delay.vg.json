@@ -13,7 +13,7 @@
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 24,
+        "max": 23,
         "step": 1,
         "name": "Minimum Flight Duration (hours):"
       }

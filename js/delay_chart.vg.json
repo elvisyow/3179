@@ -34,7 +34,7 @@
   ],
   "hconcat": [
     {
-      "width": 500,
+      "width": 470,
       "height": 300,
       "mark": "line",
       "title": "Count of Flights Delayed by Hour of Day",
@@ -66,7 +66,7 @@
       }
     },
     {
-      "width": 500,
+      "width": 470,
       "height": 300,
       "mark": "line",
       "title": "Count of Flights Cancelled by Hour of Day",

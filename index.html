@@ -1,17 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <!-- Import Bootstrap CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <!-- Import Google Fonts for Title Styling -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Import Vega & Vega-Lite -->
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
 
-  <!-- Custom CSS file -->
-  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+  <!-- Custom CSS -->
+  <style>
+    body {
+      background-color: #f0f4f8;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .card {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .card-title {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      font-size: 2rem;
+      color: #0056b3;
+    }
+
+    h1.display-4 {
+      font-family: 'Roboto', sans-serif;
+      font-weight: 900;
+      font-size: 3rem;
+      color: #0056b3;
+    }
+
+    p, h2 {
+      font-size: 1.2rem;
+      color: #0056b3;
+    }
+
+    .card-body {
+      padding: 1.5rem;
+    }
+
+    .bg-lightblue {
+      background-color: #f0f8ff;
+    }
+
+    .vega-graph-lg {
+      max-width: 100%;
+      height: 500px;
+    }
+
+    .vega-graph {
+      max-width: 100%;
+      height: 300px;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .card-body {
+      padding: 2rem;
+    }
+
+    .text-left-align {
+      text-align: left;
+    }
+  </style>
 </head>
 
 <body>
@@ -26,27 +90,69 @@
       </div>
     </div>
 
+    <!-- Intro Card -->
     <div class="row mb-5">
-      <div class="col text-center">
-        <h2>Flight Path Network Diagram</h2>
-        <div id="flight_map" class="d-flex justify-content-center align-items-center mb-3"></div>
-        <p class="text-left">This chart visualises flight routes between different cities. From this, we see that airports with the most flights are located around the Europe and North </p>
+      <div class="col">
+        <div class="card bg-lightblue">
+          <div class="card-body">
+            <h2 class="card-title">Introduction</h2>
+            <p>
+              This data visualization project provides insights into global flight data. We explore flight routes between cities, examine the relationship between flight duration and ticket prices, and analyze patterns in flight delays and cancellations. 
+              Through these visualizations, we aim to understand factors affecting air travel and the dynamics behind various disruptions in the airline industry.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Flight Path Network Diagram -->
     <div class="row mb-5">
-      <div class="col text-center">
-        <h2>Flight Duration vs Average Ticket Price Scatterplot</h2>
-        <div id="flight_delay" class="d-flex justify-content-center align-items-center mb-3"></div>
-        <p class="text-left">This scatterplot shows the relationship between the flight duration and the average ticket price. It is expected that the longer the flight, the more expensive the ticket. However, it seems that there are quite a few flights with minimal flight durations that cost more than flights with long hours.</p>
+      <div class="col">
+        <div class="card bg-lightblue">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div id="flight_map" class="vega-graph-lg"></div>
+              </div>
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2 class="card-title">Flight Path Network Diagram</h2>
+                <p>This chart visualises flight routes between different cities. From this, we see that airports with the most flights are located around Europe and North America.</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
+    <!-- Flight Duration vs Average Ticket Price Scatterplot -->
     <div class="row mb-5">
-      <div class="col text-center">
-        <h2>Flight Delays and Cancellations per Hour of Day</h2>
-        <div id="delay_chart" class="d-flex justify-content-center align-items-center mb-3"></div>
-        <p class="text-left">This chart breaks down the counts of flight delays and cancellations depending on the hour of the day. This helps in understanding common time periods where disruptions are more common (such as peak travel times).</p>
+      <div class="col">
+        <div class="card bg-lightblue">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6 d-flex flex-column justify-content-center">
+                <h2 class="card-title">Flight Duration vs Average Ticket Price Scatterplot</h2>
+                <p>This scatterplot shows the relationship between flight duration and average ticket price. It seems that there are flights with minimal durations that cost more than long-hour flights.</p>
+              </div>
+              <div class="col-md-6">
+                <div id="flight_delay" class="vega-graph-lg"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flight Delays and Cancellations per Hour of Day -->
+    <div class="row mb-5">
+      <div class="col">
+        <div class="card bg-lightblue">
+          <div class="card-body text-left-align">
+            <h2 class="card-title">Flight Delays and Cancellations per Hour of Day</h2>
+            <div id="delay_chart" class="vega-graph mb-3 full-width"></div>
+            <p>This chart breaks down the counts of flight delays and cancellations depending on the hour of the day, helping to identify peak travel times with more disruptions.</p>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -60,17 +166,17 @@
   <!-- Vega Embedding Scripts -->
   <script type="text/javascript">
     var flight_map = "js/flight_map.vg.json";
-    vegaEmbed("#flight_map", flight_map).then(function (result) {
+    vegaEmbed("#flight_map", flight_map, { "width": 500, "height": 500 }).then(function (result) {
       // Access the Vega view instance
     }).catch(console.error);
 
     var flight_delay = "js/flight_delay.vg.json";
-    vegaEmbed("#flight_delay", flight_delay).then(function (result) {
+    vegaEmbed("#flight_delay", flight_delay, { "width": 400, "height": 400 }).then(function (result) {
       // Access the Vega view instance
     }).catch(console.error);
 
     var delay_chart = "js/delay_chart.vg.json";
-    vegaEmbed("#delay_chart", delay_chart).then(function (result) {
+    vegaEmbed("#delay_chart", delay_chart, { "width": 600, "height": 300 }).then(function (result) {
       // Access the Vega view instance
     }).catch(console.error);
   </script>
