@@ -5,7 +5,10 @@
   },
   "width": 800,
   "height": 600,
-  "mark": "point",
+  "mark": {
+    "type": "point",
+    "color": "#0056b3"
+  },
   "params": [
     {
       "name": "MinFlightDuration",
@@ -45,9 +48,14 @@
         "format": "$.2f"
       },
       {
-        "field": "DestRegion",
+        "field": "OriginCityName",
         "type": "nominal",
-        "title": "Destination Region"
+        "title": "Origin City"
+      },
+      {
+        "field": "DestCityName",
+        "type": "nominal",
+        "title": "Destination City"
       },
       {
         "field": "FlightDelayType",

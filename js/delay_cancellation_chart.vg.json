@@ -36,7 +36,7 @@
     {
       "width": 470,
       "height": 300,
-      "mark": "line",
+      "mark": { "type": "line", "color": "#0056b3" },
       "title": "Count of Flights Delayed by Hour of Day",
       "params": [
         {
@@ -68,7 +68,7 @@
     {
       "width": 470,
       "height": 300,
-      "mark": "line",
+      "mark": { "type": "line", "color": "#0056b3" },
       "title": "Count of Flights Cancelled by Hour of Day",
       "params": [
         {

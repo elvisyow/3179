@@ -12,7 +12,7 @@
         "min": 0,
         "max": 2000,
         "step": 100,
-        "name": "Maximum Average Ticket Price: "
+        "name": "Maximum Average Ticket Price ($): "
       }
     }
   ],
@@ -50,7 +50,7 @@
             {
               "mark": {
                 "type": "line",
-                "stroke": "#ff5500",
+                "stroke": "#87CEEB",
                 "strokeWidth": 0.7,
                 "opacity": 0.3
               },
@@ -67,7 +67,7 @@
             {
               "mark": {
                 "type": "circle",
-                "color": "#fe0000",
+                "color": "#0056b3",
                 "size": 5
               },
               "encoding": {
@@ -82,7 +82,7 @@
             {
               "mark": {
                 "type": "circle",
-                "color": "#fe0000",
+                "color": "#0056b3",
                 "size": 5
               },
               "encoding": {
@@ -100,9 +100,62 @@
           "mark": {
             "type": "text",
             "align": "left",
-            "baseline": "middle",
+            "fontStyle": "italic",
             "fontSize": 12,
             "color": "black"
+          },
+          "encoding": {
+            "text": {
+              "value": [
+                "Most flights seem to be located",
+                "around the North America and",
+                "Europe region."
+              ]
+            },
+            "x": { "value": 110 },
+            "y": { "value": 50 }
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeWidth": 1,
+            "color": "black"
+          },
+          "encoding": {
+            "x": {
+              "value": 120
+            },
+            "y": {
+              "value": 90
+            },
+            "x2": {
+              "value": 135
+            },
+            "y2": {
+              "value": 150
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "rule",
+            "strokeWidth": 1,
+            "color": "black"
+          },
+          "encoding": {
+            "x": {
+              "value": 250
+            },
+            "y": {
+              "value": 75
+            },
+            "x2": {
+              "value": 265
+            },
+            "y2": {
+              "value": 140
+            }
           }
         }
       ]
