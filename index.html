@@ -75,6 +75,13 @@
     .text-left-align {
       text-align: left;
     }
+
+    small {
+      display: block;
+      margin-top: 10px;
+      color: #0056b3;
+      font-size: 0.9rem;
+    }
   </style>
 </head>
 
@@ -113,6 +120,7 @@
             <div class="row">
               <div class="col-md-6">
                 <div id="flight_map" class="vega-graph-lg"></div>
+                <small>You can use the slider to adjust the network diagram based on the maximum ticket price.</small>
               </div>
               <div class="col-md-6 d-flex flex-column justify-content-center">
                 <h2 class="card-title">Flight Path Network Diagram</h2>
@@ -137,6 +145,7 @@
                 <p>
                   This scatterplot explores the relationship between flight duration and average ticket price. Interestingly, we find that not all longer flights are more expensive. Some short-duration flights show unexpectedly high prices, likely due to factors such as demand, flight frequency, or limited competition. This visualisation helps to identify trends in airline pricing strategies, revealing the complexity behind ticket pricing beyond just flight duration.
                 </p>
+                <small>You can use the slider to adjust the minimum flight duration.</small>
               </div>
               <div class="col-md-6">
                 <div id="flight_duration" class="vega-graph-lg"></div>
@@ -156,6 +165,21 @@
             <div id="delay_cancellation_chart" class="vega-graph mb-3 full-width"></div>
             <p>
               Flight delays and cancellations are common concerns for travelers. In this chart, we examine how disruptions in air travel vary by time of day. Peaks during late afternoon and early evening reveal when flight operations are more likely to encounter delays or cancellations, potentially due to the cumulative effect of earlier flights or increased congestion. Understanding these patterns is crucial for both passengers and airline operators to optimize flight schedules and mitigate disruptions.
+            </p>
+            <small>You can choose the specific weather condition to see what the weather was during the delays and cancellations.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Summary Card -->
+    <div class="row mb-5">
+      <div class="col">
+        <div class="card bg-lightblue">
+          <div class="card-body">
+            <h2 class="card-title">Summary</h2>
+            <p>
+              In this visualisation, we explored various dimensions of global flight data, including flight routes, ticket prices, and disruptions. Through the Flight Path Network Diagram, we highlighted key air travel hubs and examined their geographic importance. The scatterplot of Flight Duration vs Average Ticket Price revealed interesting pricing anomalies, challenging the assumption that longer flights are always more expensive. Finally, our analysis of Flight Delays and Cancellations per Hour of Day provided crucial insights into the timing of flight disruptions. These visualisations together offer a deeper understanding of the complexities and trends in the aviation industry.
             </p>
           </div>
         </div>
